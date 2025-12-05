@@ -70,11 +70,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay.Console\\BudgetPay.Console.csproj",
+      "projectUniqueName": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Console\\BudgetPay.Console.csproj",
       "projectName": "BudgetPay.Console",
-      "projectPath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay.Console\\BudgetPay.Console.csproj",
+      "projectPath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Console\\BudgetPay.Console.csproj",
       "packagesPath": "C:\\Users\\gokhan.kaya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay.Console\\obj\\",
+      "outputPath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Console\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -96,11 +96,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay.Application\\BudgetPay.Application.csproj": {
-              "projectPath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay.Application\\BudgetPay.Application.csproj"
+            "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Application\\BudgetPay.Application.csproj": {
+              "projectPath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Application\\BudgetPay.Application.csproj"
             },
-            "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay.Infrastructure\\BudgetPay.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay.Infrastructure\\BudgetPay.Infrastructure.csproj"
+            "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Infrastructure\\BudgetPay.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Infrastructure\\BudgetPay.Infrastructure.csproj"
             }
           }
         }
