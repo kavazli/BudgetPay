@@ -9,15 +9,13 @@ public class IncomeTaxBracket
     public decimal Rate { get; }
     public decimal More { get; }
 
-
     public IncomeTaxBracket(decimal minAmount, decimal maxAmount, decimal rate, decimal more)
     {
-
         if (minAmount < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(minAmount), "MinAmount cannot be negative.");
         }
-        if (MaxAmount <= 0)
+        if (maxAmount <= 0)
         {
             throw new ArgumentOutOfRangeException(nameof(maxAmount), "MaxAmount cannot be negative.");
         }

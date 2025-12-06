@@ -19,14 +19,16 @@ public class IncomeTaxBrackets
         // 2. Çakışma kontrolü
         for (int i = 1; i < _brackets.Count; i++)
         {
-            if (_brackets[i].MinAmount < _brackets[i - 1].MaxAmount)
+            if (_brackets[i].MinAmount <= _brackets[i - 1].MaxAmount)
                 throw new ArgumentException("Tax brackets cannot overlap.");
         }
     }
 
     public IncomeTaxBracket GetBracketFor(decimal income)
     {
-        return _brackets.First(b => income >= b.MinAmount && income <= b.MaxAmount);
+        var bracket = _brackets.FirstOrDefault(b => income >= b.MinAmount && income <= b.MaxAmount);
+        if (bracket == null)
+            throw new ArgumentOutOfRangeException(nameof(income), "Income falls outside configured brackets.");
+        return bracket;
     }
 }
-

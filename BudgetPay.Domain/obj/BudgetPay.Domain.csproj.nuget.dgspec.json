@@ -1,32 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Domain\\BudgetPay.Domain.csproj": {}
+    "/Users/gokhankaya/Desktop/BudgetPay/BudgetPay/BudgetPay.Domain/BudgetPay.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Domain\\BudgetPay.Domain.csproj": {
+    "/Users/gokhankaya/Desktop/BudgetPay/BudgetPay/BudgetPay.Domain/BudgetPay.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Domain\\BudgetPay.Domain.csproj",
+        "projectUniqueName": "/Users/gokhankaya/Desktop/BudgetPay/BudgetPay/BudgetPay.Domain/BudgetPay.Domain.csproj",
         "projectName": "BudgetPay.Domain",
-        "projectPath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Domain\\BudgetPay.Domain.csproj",
-        "packagesPath": "C:\\Users\\gokhan.kaya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay\\BudgetPay.Domain\\obj\\",
+        "projectPath": "/Users/gokhankaya/Desktop/BudgetPay/BudgetPay/BudgetPay.Domain/BudgetPay.Domain.csproj",
+        "packagesPath": "/Users/gokhankaya/.nuget/packages/",
+        "outputPath": "/Users/gokhankaya/Desktop/BudgetPay/BudgetPay/BudgetPay.Domain/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\gokhan.kaya\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/gokhankaya/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
