@@ -26,9 +26,16 @@ public class IncomeTaxBrackets
 
     public IncomeTaxBracket GetBracketFor(decimal income)
     {
-        var bracket = _brackets.FirstOrDefault(b => income >= b.MinAmount && income <= b.MaxAmount);
-        if (bracket == null)
-            throw new ArgumentOutOfRangeException(nameof(income), "Income falls outside configured brackets.");
-        return bracket;
+        foreach (var bracket in _brackets)
+        {
+            if (income >= bracket.MinAmount && income <= bracket.MaxAmount)
+            {
+                return bracket;
+            }
+        }
+
+        throw new ArgumentOutOfRangeException(nameof(income),
+            "Income falls outside configured brackets.");
     }
+
 }

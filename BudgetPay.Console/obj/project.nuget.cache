@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "VjSghShEZrk=",
+  "dgSpecHash": "VDGaqk2UXVc=",
   "success": true,
-  "projectFilePath": "/Users/gokhankaya/Desktop/BudgetPay/BudgetPay/BudgetPay.Console/BudgetPay.Console.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\gokhan.kaya\\OneDrive - Aster Textile\\Desktop\\BELGELERİM\\VsStudioProjectsC#\\BudgetPay\\BudgetPay-2\\BudgetPay.Console\\BudgetPay.Console.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gokhan.kaya\\.nuget\\packages\\closedxml\\0.105.0\\closedxml.0.105.0.nupkg.sha512",
+    "C:\\Users\\gokhan.kaya\\.nuget\\packages\\closedxml.parser\\2.0.0\\closedxml.parser.2.0.0.nupkg.sha512",
+    "C:\\Users\\gokhan.kaya\\.nuget\\packages\\documentformat.openxml\\3.1.1\\documentformat.openxml.3.1.1.nupkg.sha512",
+    "C:\\Users\\gokhan.kaya\\.nuget\\packages\\documentformat.openxml.framework\\3.1.1\\documentformat.openxml.framework.3.1.1.nupkg.sha512",
+    "C:\\Users\\gokhan.kaya\\.nuget\\packages\\excelnumberformat\\1.1.0\\excelnumberformat.1.1.0.nupkg.sha512",
+    "C:\\Users\\gokhan.kaya\\.nuget\\packages\\rbush.signed\\4.0.0\\rbush.signed.4.0.0.nupkg.sha512",
+    "C:\\Users\\gokhan.kaya\\.nuget\\packages\\sixlabors.fonts\\1.0.0\\sixlabors.fonts.1.0.0.nupkg.sha512",
+    "C:\\Users\\gokhan.kaya\\.nuget\\packages\\system.io.packaging\\8.0.1\\system.io.packaging.8.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
