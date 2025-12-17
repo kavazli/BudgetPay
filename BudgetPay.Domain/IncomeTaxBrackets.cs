@@ -8,6 +8,16 @@ public class IncomeTaxBrackets
 
     public IReadOnlyList<IncomeTaxBracket> Brackets => _brackets;
 
+
+    public static IncomeTaxBrackets Default { get; } = new IncomeTaxBrackets(new[]
+    {
+        new IncomeTaxBracket(0m, 158000m, 0.15m, 0m),
+        new IncomeTaxBracket(158000.01m, 330000m, 0.20m, 23700m),
+        new IncomeTaxBracket(330000.01m, 1200000m, 0.27m, 58000m),
+        new IncomeTaxBracket(1200000.01m, 4300000m, 0.35m, 293000m),
+        new IncomeTaxBracket(4300000.01m, decimal.MaxValue, 0.40m, 1378000m)
+    });
+
     public IncomeTaxBrackets(IEnumerable<IncomeTaxBracket> brackets)
     {
         if (brackets == null || !brackets.Any())

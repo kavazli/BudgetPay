@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BudgetPay.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e5d68a4a29484fa33f85d5c022d10f40254a1ac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+396b4eca9755c5ccca5e3ce104b40c506ec60296")]
 [assembly: System.Reflection.AssemblyProductAttribute("BudgetPay.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BudgetPay.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

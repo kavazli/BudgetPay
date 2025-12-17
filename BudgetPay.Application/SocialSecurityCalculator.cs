@@ -7,7 +7,7 @@ namespace BudgetPay.Application;
 public static class SocialSecurityCalculator
 {
     
-
+    
     public static decimal EmployeeSocialSecurityResult(decimal GrossPayroll, SocialSecurityParameters socialSecurityParameters)
     {   
         if (socialSecurityParameters == null)
