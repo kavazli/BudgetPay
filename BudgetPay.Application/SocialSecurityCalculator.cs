@@ -8,11 +8,11 @@ public static class SocialSecurityCalculator
 {
     
     
-    public static decimal EmployeeSocialSecurityResult(decimal GrossPayroll, SocialSecurityParameters socialSecurityParameters)
+    public static decimal EmployeeSocialSecurityResult(decimal GrossPayroll)
     {   
-        if (socialSecurityParameters == null)
+        if (StatutoryParameters.SocialSecurityParameters == null)
         {
-            throw new ArgumentNullException(nameof(socialSecurityParameters), "Social security parameters cannot be null.");
+            throw new ArgumentNullException(nameof(StatutoryParameters.SocialSecurityParameters), "Social security parameters cannot be null.");
         }
 
         if (GrossPayroll < 0)
@@ -20,21 +20,21 @@ public static class SocialSecurityCalculator
             throw new ArgumentOutOfRangeException(nameof(GrossPayroll), "Gross payroll must be greater than 0.");
         }
 
-        if (GrossPayroll > socialSecurityParameters.SocialSecurityCeiling)
+        if (GrossPayroll > StatutoryParameters.SocialSecurityParameters.SocialSecurityCeiling)
         {
-            return socialSecurityParameters.SocialSecurityCeiling * socialSecurityParameters.EmployeeSocialSecurityRate;
+            return StatutoryParameters.SocialSecurityParameters.SocialSecurityCeiling * StatutoryParameters.SocialSecurityParameters.EmployeeSocialSecurityRate;
         }
         else
         {
-            return GrossPayroll * socialSecurityParameters.EmployeeSocialSecurityRate;
+            return GrossPayroll * StatutoryParameters.SocialSecurityParameters.EmployeeSocialSecurityRate;
         }
     }
 
-    public static decimal EmployeeUnemploymentInsuranceResult(decimal GrossPayroll, SocialSecurityParameters socialSecurityParameters)
+    public static decimal EmployeeUnemploymentInsuranceResult(decimal GrossPayroll)
     {
-        if (socialSecurityParameters == null)
+        if (StatutoryParameters.SocialSecurityParameters == null)
         {
-            throw new ArgumentNullException(nameof(socialSecurityParameters), "Social security parameters cannot be null.");
+            throw new ArgumentNullException(nameof(StatutoryParameters.SocialSecurityParameters), "Social security parameters cannot be null.");
         }
 
         if (GrossPayroll < 0)
@@ -43,13 +43,13 @@ public static class SocialSecurityCalculator
         }
 
 
-        if (GrossPayroll > socialSecurityParameters.SocialSecurityCeiling)
+        if (GrossPayroll > StatutoryParameters.SocialSecurityParameters.SocialSecurityCeiling)
         {
-            return socialSecurityParameters.SocialSecurityCeiling * socialSecurityParameters.EmployeeUnemploymentInsuranceRate;
+            return StatutoryParameters.SocialSecurityParameters.SocialSecurityCeiling * StatutoryParameters.SocialSecurityParameters.EmployeeUnemploymentInsuranceRate;
         }
         else
         {
-            return GrossPayroll * socialSecurityParameters.EmployeeUnemploymentInsuranceRate;
+            return GrossPayroll * StatutoryParameters.SocialSecurityParameters.EmployeeUnemploymentInsuranceRate;
         }
     }
 

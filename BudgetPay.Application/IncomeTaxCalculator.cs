@@ -9,28 +9,29 @@ namespace BudgetPay.Application;
 public static class IncomeTaxCalculator
 {
 
-    public static decimal CalculateTax(decimal taxbase, IncomeTaxBrackets brackets, EmployeeCumulativeTaxState state)
+    public static decimal CalculateTax(decimal taxbase,EmployeeCumulativeTaxState state)
     {   
         decimal previousBase = state.CumulativeIncomeTaxBase;
         decimal curreBase = previousBase + taxbase;
 
-        decimal taxPreviousBase = TaxBracketCalculation(previousBase, brackets);
-        decimal taxCurrentBase = TaxBracketCalculation(curreBase, brackets);  
+        decimal taxPreviousBase = TaxBracketCalculation(previousBase);
+        decimal taxCurrentBase = TaxBracketCalculation(curreBase);  
         decimal tax = taxCurrentBase - taxPreviousBase;
         return tax;
     }
     
 
-    private static decimal TaxBracketCalculation(decimal totalBase, IncomeTaxBrackets brackets)
-{
-    if (brackets == null)
+    private static decimal TaxBracketCalculation(decimal totalBase)
     {
-        throw new ArgumentNullException(nameof(brackets), "Income tax brackets cannot be null.");
-    }
+        
+    if (StatutoryParameters.IncomeTaxBrackets == null)
+        {
+            throw new ArgumentNullException(nameof(StatutoryParameters.IncomeTaxBrackets), "Income tax brackets cannot be null.");
+        }
 
-    if (brackets.Brackets == null || brackets.Brackets.Count == 0)
+    if (StatutoryParameters.IncomeTaxBrackets.Brackets == null || StatutoryParameters.IncomeTaxBrackets.Brackets.Count == 0)
     {
-        throw new ArgumentException("Tax brackets cannot be empty.", nameof(brackets));
+        throw new ArgumentException("Tax brackets cannot be empty.", nameof(StatutoryParameters.IncomeTaxBrackets));
     }
 
     if (totalBase <= 0)
@@ -40,10 +41,10 @@ public static class IncomeTaxCalculator
 
     decimal tax = 0m;
 
-    for (int i = 0; i < brackets.Brackets.Count; i++)
+    for (int i = 0; i < StatutoryParameters.IncomeTaxBrackets.Brackets.Count; i++)
     {
-        decimal bracketMin = (i == 0) ? 0m : brackets.Brackets[i - 1].MaxAmount;
-        decimal bracketMax = brackets.Brackets[i].MaxAmount;
+        decimal bracketMin = (i == 0) ? 0m : StatutoryParameters.IncomeTaxBrackets.Brackets[i - 1].MaxAmount;
+        decimal bracketMax = StatutoryParameters.IncomeTaxBrackets.Brackets[i].MaxAmount;
 
         if (totalBase <= bracketMin)
         {
@@ -52,17 +53,17 @@ public static class IncomeTaxCalculator
 
         if (totalBase > bracketMax)
         {
-            tax += (bracketMax - bracketMin) * brackets.Brackets[i].Rate;
+            tax += (bracketMax - bracketMin) * StatutoryParameters.IncomeTaxBrackets.Brackets[i].Rate;
         }
         else
         {
-            tax += (totalBase - bracketMin) * brackets.Brackets[i].Rate;
+            tax += (totalBase - bracketMin) * StatutoryParameters.IncomeTaxBrackets.Brackets[i].Rate;
             break;
         }
     }
 
     return tax;
-}
+    }
 
 }
 
