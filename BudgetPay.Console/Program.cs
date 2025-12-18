@@ -45,11 +45,12 @@ gokhan.BaseSalary = 22104.67m;
 
 MonthlyPayroll result = calculator.CalculateMonthlyFromGross(gokhan, new EmployeeCumulativeTaxState(), 1);
 
-Console.WriteLine($"Net Maaş: {result.NetSalary, 10 } TL");
-System.Console.WriteLine($"İşsizlik Sigortası Kesintisi: {result.EmployeeUnemploymentInsuranceContributionAmount, 10} TL");
-System.Console.WriteLine($"SGK Kesintisi: {result.EmployeeSSContributionAmount, 10} TL");
-System.Console.WriteLine($"Gelir Vergisi Matrahı: {result.IncomeTaxBase, 10} TL");
-System.Console.WriteLine($"Gelir Vergisi: {result.IncomeTax, 10} TL");
-System.Console.WriteLine($"Damga Vergisi: {result.StampTax, 10} TL");
-System.Console.WriteLine($"Brüt Maaş: {result.GrossSalary, 10} TL");
+Console.WriteLine($"Net Maaş:                     {result.NetSalary, 10 } TL");
+Console.WriteLine($"İşsizlik Sigortası Kesintisi: {result.EmployeeUnemploymentInsuranceContributionAmount, 10} TL");
+Console.WriteLine($"SGK Kesintisi:                {result.EmployeeSSContributionAmount,10} TL");
+Console.WriteLine($"K.Gelir Vergisi Matrahı:      {result.CumulativeIncomeTaxBase, 10} TL");
+Console.WriteLine($"Gelir Vergisi Matrahı:        {result.IncomeTaxBase, 10} TL");
+Console.WriteLine($"Gelir Vergisi:                {result.IncomeTax, 10} TL");
+Console.WriteLine($"Damga Vergisi:                {result.StampTax, 10} TL");
+Console.WriteLine($"Brüt Maaş:                    {result.GrossSalary, 10} TL");
 

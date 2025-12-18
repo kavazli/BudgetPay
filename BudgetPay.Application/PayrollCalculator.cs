@@ -34,14 +34,14 @@ public class PayrollCalculator
         pay.Year = 0;
         pay.Month = month;
         pay.NetSalary = employee.BaseSalary;
-        decimal TempPay = employee.BaseSalary;
+        pay.GrossSalary = employee.BaseSalary;
    
-        pay.EmployeeSSContributionAmount = SocialSecurityCalculator.EmployeeSocialSecurityResult(TempPay);
-        pay.EmployeeUnemploymentInsuranceContributionAmount = SocialSecurityCalculator.EmployeeUnemploymentInsuranceResult(TempPay);
-        pay.IncomeTaxBase = TempPay - (pay.EmployeeSSContributionAmount + pay.EmployeeUnemploymentInsuranceContributionAmount);
+        pay.EmployeeSSContributionAmount = SocialSecurityCalculator.EmployeeSocialSecurityResult(pay.GrossSalary);
+        pay.EmployeeUnemploymentInsuranceContributionAmount = SocialSecurityCalculator.EmployeeUnemploymentInsuranceResult(pay.GrossSalary);
+        pay.IncomeTaxBase = pay.GrossSalary - (pay.EmployeeSSContributionAmount + pay.EmployeeUnemploymentInsuranceContributionAmount);
         pay.CumulativeIncomeTaxBase = state.CumulativeIncomeTaxBase + pay.IncomeTaxBase;
         pay.IncomeTax = IncomeTaxCalculator.CalculateTax(pay.IncomeTaxBase, state);
-        pay.StampTax = StampTaxCalculator.CalculeteStampTax(TempPay);
+        pay.StampTax = StampTaxCalculator.CalculeteStampTax(pay.GrossSalary);
 
         pay.GrossSalary = pay.NetSalary + pay.EmployeeSSContributionAmount + pay.EmployeeUnemploymentInsuranceContributionAmount + pay.IncomeTax + pay.StampTax;
         pay.EmployerSSContributionAmount = 0m;
