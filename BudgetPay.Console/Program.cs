@@ -44,18 +44,10 @@ PayrollCalculator calculator = new PayrollCalculator();
 Employee gokhan = new();
 gokhan.BaseSalary = 900000.00m;
 
-List<MonthlyPayroll> liste = new();
-EmployeeCumulativeTaxState state = new();
-for (int i = 1; i <= 12; i++)
-{
+List<MonthlyPayroll> result = calculator.CalculateAnnualPayrollFromGross(gokhan);
 
-    MonthlyPayroll result = calculator.CalculateMonthlyFromGross(gokhan, state, i);
-    state.AddMonthlyIncomeTaxBase(result.IncomeTaxBase);
-    liste.Add(result);
 
-}
-
-foreach (MonthlyPayroll item in liste)
+foreach (MonthlyPayroll item in result)
 {
     Console.WriteLine($"{item.NetSalary, 13:N2}" +"  "+
                       $"{item.EmployeeSSContributionAmount, 13:N2}" +"  "+

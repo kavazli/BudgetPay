@@ -6,11 +6,31 @@ using BudgetPay.Domain;
 namespace BudgetPay.Application;
 
 public class PayrollCalculator
-{   
-    
-    
+{
 
-    public MonthlyPayroll CalculateMonthlyFromGross(Employee employee, EmployeeCumulativeTaxState state, int month)
+    public List<MonthlyPayroll> CalculateAnnualPayrollFromGross(Employee employee)
+    {
+        if (employee == null)
+        {
+            throw new NullReferenceException(nameof(employee));
+        }
+
+        EmployeeAnnualPayroll list = new();
+        MonthlyPayroll pay = new();
+        EmployeeCumulativeTaxState state = new();
+        for (int i = 1; i <= 12; i++)
+        {
+
+            pay = CalculateMonthlyPayrollFromGross(employee, state, i);
+            state.AddMonthlyIncomeTaxBase(pay.IncomeTaxBase);
+            list.Add(pay);
+        }
+
+
+        return list.AnnualPayrolls;
+    }
+
+    private MonthlyPayroll CalculateMonthlyPayrollFromGross(Employee employee, EmployeeCumulativeTaxState state, int month)
     {
 
         if (employee == null)
@@ -19,14 +39,14 @@ public class PayrollCalculator
         }
         if (state == null)
         {
-             throw new NullReferenceException(nameof(employee));
+            throw new NullReferenceException(nameof(employee));
         }
         if (month < 1 || month > 12)
         {
             throw new IndexOutOfRangeException(nameof(month));
         }
 
-        
+
 
         MonthlyPayroll pay = new MonthlyPayroll();
 
@@ -47,7 +67,7 @@ public class PayrollCalculator
         pay.StampExemption = StampTaxExemption.StampExemption();
         pay.StampTax = StampTaxCalculator.CalculeteStampTax(pay.GrossSalary) - StampTaxExemption.StampExemption();
 
-       
+
         pay.NetSalary = pay.GrossSalary - (pay.EmployeeSSContributionAmount + pay.EmployeeUnemploymentInsuranceContributionAmount + pay.IncomeTax + pay.StampTax);
         pay.TotalEmployerCost = pay.GrossSalary;
 
@@ -55,9 +75,9 @@ public class PayrollCalculator
         pay.EmployerSSContributionAmount = 0m;
         pay.EmployerUnemploymentInsuranceContributionAmount = 0m;
         pay.IncentiveDiscount = 0m;
-        
 
-    
+
+
         return pay;
     }
 
