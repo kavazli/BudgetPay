@@ -42,7 +42,7 @@ StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTax
 PayrollCalculator calculator = new PayrollCalculator();
 
 Employee gokhan = new();
-gokhan.BaseSalary = 100000.00m;
+gokhan.BaseSalary = 900000.00m;
 
 List<MonthlyPayroll> liste = new();
 EmployeeCumulativeTaxState state = new();
@@ -57,16 +57,16 @@ for (int i = 1; i <= 12; i++)
 
 foreach (MonthlyPayroll item in liste)
 {
-    Console.WriteLine($"{item.NetSalary, 13:f2}" +"  "+
-                      $"{item.EmployeeSSContributionAmount, 13:f2}" +"  "+
-                      $"{item.EmployeeUnemploymentInsuranceContributionAmount, 13:f2}" +"  "+
-                      $"{item.IncomeTaxBase, 13:f2}" +"  "+
-                      $"{item.CumulativeIncomeTaxBase, 13:f2}" +"  "+
-                      $"{item.IncomeTax, 13:f2}" +"  "+
-                      $"{item.StampTax, 13:f2}" +"  "+
-                      $"{item.IncomeTaxExemption, 13:f2}" +"  "+
-                      $"{item.StampExemption, 13:f2}" +"  "+
-                      $"{item.GrossSalary, 13:f2}");
+    Console.WriteLine($"{item.NetSalary, 13:N2}" +"  "+
+                      $"{item.EmployeeSSContributionAmount, 13:N2}" +"  "+
+                      $"{item.EmployeeUnemploymentInsuranceContributionAmount, 13:N2}" +"  "+
+                      $"{item.IncomeTaxBase, 13:N2}" +"  "+
+                      $"{item.CumulativeIncomeTaxBase, 13:N2}" +"  "+
+                      $"{item.IncomeTax, 13:N2}" +"  "+
+                      $"{item.StampTax, 13:N2}" +"  "+
+                      $"{item.IncomeTaxExemption, 13:N2}" +"  "+
+                      $"{item.StampExemption, 13:N2}" +"  "+
+                      $"{item.GrossSalary, 13:N2}");
 }
 
 
