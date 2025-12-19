@@ -21,8 +21,9 @@ public class MonthlyPayroll
     public decimal IncomeTaxExemption { get;set; }
 
     public decimal StampTax { get;set; }
+    public decimal StampExemption { get; set; }
 
-    public decimal EmployerSSContributionAmount { get;set; }
+    public decimal EmployerSSContributionAmount { get; set; }
     public decimal EmployerUnemploymentInsuranceContributionAmount { get;set; }
 
     public decimal IncentiveDiscount { get; set;}

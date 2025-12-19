@@ -11,7 +11,7 @@ public class PayrollCalculator
     
 
     public MonthlyPayroll CalculateMonthlyFromGross(Employee employee, EmployeeCumulativeTaxState state, int month)
-{
+    {
 
         if (employee == null)
         {
@@ -40,10 +40,13 @@ public class PayrollCalculator
         pay.EmployeeUnemploymentInsuranceContributionAmount = SocialSecurityCalculator.EmployeeUnemploymentInsuranceResult(pay.GrossSalary);
         pay.IncomeTaxBase = pay.GrossSalary - (pay.EmployeeSSContributionAmount + pay.EmployeeUnemploymentInsuranceContributionAmount);
         pay.CumulativeIncomeTaxBase = state.CumulativeIncomeTaxBase + pay.IncomeTaxBase;
-        pay.IncomeTax = IncomeTaxCalculator.CalculateTax(pay.IncomeTaxBase, state);
-        pay.StampTax = StampTaxCalculator.CalculeteStampTax(pay.GrossSalary);
+        pay.IncomeTax = IncomeTaxCalculator.CalculateTax(pay.IncomeTaxBase, state) - IncomeTaxExemption.IncomeExemption(month);
+        pay.IncomeTaxExemption = IncomeTaxExemption.IncomeExemption(month);
+        pay.StampExemption = StampTaxExemption.StampExemption();
+        pay.StampTax = StampTaxCalculator.CalculeteStampTax(pay.GrossSalary) - StampTaxExemption.StampExemption();
 
-        pay.GrossSalary = pay.NetSalary + pay.EmployeeSSContributionAmount + pay.EmployeeUnemploymentInsuranceContributionAmount + pay.IncomeTax + pay.StampTax;
+        //pay.GrossSalary = pay.NetSalary + pay.EmployeeSSContributionAmount + pay.EmployeeUnemploymentInsuranceContributionAmount + pay.IncomeTax + pay.StampTax;
+        pay.NetSalary = pay.GrossSalary - (pay.EmployeeSSContributionAmount + pay.EmployeeUnemploymentInsuranceContributionAmount + pay.IncomeTax + pay.StampTax);
         pay.EmployerSSContributionAmount = 0m;
         pay.EmployerUnemploymentInsuranceContributionAmount = 0m;
         pay.IncentiveDiscount = 0m;
@@ -51,11 +54,6 @@ public class PayrollCalculator
 
     
         return pay;
-}
-
-
-
-
-
+    }
 
 }

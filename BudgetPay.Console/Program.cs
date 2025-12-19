@@ -41,16 +41,18 @@ StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTax
 PayrollCalculator calculator = new PayrollCalculator();
 
 Employee gokhan = new();
-gokhan.BaseSalary = 22104.67m;
+gokhan.BaseSalary = 26005.50m;
 
 MonthlyPayroll result = calculator.CalculateMonthlyFromGross(gokhan, new EmployeeCumulativeTaxState(), 1);
 
-Console.WriteLine($"Net Maaş:                     {result.NetSalary, 10 } TL");
-Console.WriteLine($"İşsizlik Sigortası Kesintisi: {result.EmployeeUnemploymentInsuranceContributionAmount, 10} TL");
-Console.WriteLine($"SGK Kesintisi:                {result.EmployeeSSContributionAmount,10} TL");
-Console.WriteLine($"K.Gelir Vergisi Matrahı:      {result.CumulativeIncomeTaxBase, 10} TL");
-Console.WriteLine($"Gelir Vergisi Matrahı:        {result.IncomeTaxBase, 10} TL");
-Console.WriteLine($"Gelir Vergisi:                {result.IncomeTax, 10} TL");
-Console.WriteLine($"Damga Vergisi:                {result.StampTax, 10} TL");
-Console.WriteLine($"Brüt Maaş:                    {result.GrossSalary, 10} TL");
+Console.WriteLine($"Net Maaş:                     {result.NetSalary, 10:f2} TL");
+Console.WriteLine($"İşsizlik Sigortası Kesintisi: {result.EmployeeUnemploymentInsuranceContributionAmount, 10:f2} TL");
+Console.WriteLine($"SGK Kesintisi:                {result.EmployeeSSContributionAmount,10:f2} TL");
+Console.WriteLine($"K.Gelir Vergisi Matrahı:      {result.CumulativeIncomeTaxBase, 10:f2} TL");
+Console.WriteLine($"Gelir Vergisi Matrahı:        {result.IncomeTaxBase, 10:f2} TL");
+Console.WriteLine($"Gelir Vergisi:                {result.IncomeTax,10:f2} TL");
+Console.WriteLine($"Gelir Vergisi İstisnası:      {result.IncomeTaxExemption,10:f2} TL");
+Console.WriteLine($"Damga Vergisi istinası;       {result.StampExemption,10:f2} TL");
+Console.WriteLine($"Damga Vergisi:                {result.StampTax, 10:f2} TL");
+Console.WriteLine($"Brüt Maaş:                    {result.GrossSalary, 10:f2} TL");
 
