@@ -42,11 +42,11 @@ StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTax
 PayrollCalculator calculator = new PayrollCalculator();
 
 Employee gokhan = new();
-gokhan.BaseSalary = 26005.50m;
+gokhan.BaseSalary = 100000.00m;
 
 List<MonthlyPayroll> liste = new();
 EmployeeCumulativeTaxState state = new();
-for (int i = 1; i < 12; i++)
+for (int i = 1; i <= 12; i++)
 {
 
     MonthlyPayroll result = calculator.CalculateMonthlyFromGross(gokhan, state, i);
@@ -57,23 +57,20 @@ for (int i = 1; i < 12; i++)
 
 foreach (MonthlyPayroll item in liste)
 {
-    Console.WriteLine($"{item.NetSalary},{item.EmployeeSSContributionAmount}, {item.EmployeeUnemploymentInsuranceContributionAmount},{item.IncomeTaxBase}, {item.CumulativeIncomeTaxBase}");
+    Console.WriteLine($"{item.NetSalary, 13:f2}" +"  "+
+                      $"{item.EmployeeSSContributionAmount, 13:f2}" +"  "+
+                      $"{item.EmployeeUnemploymentInsuranceContributionAmount, 13:f2}" +"  "+
+                      $"{item.IncomeTaxBase, 13:f2}" +"  "+
+                      $"{item.CumulativeIncomeTaxBase, 13:f2}" +"  "+
+                      $"{item.IncomeTax, 13:f2}" +"  "+
+                      $"{item.StampTax, 13:f2}" +"  "+
+                      $"{item.IncomeTaxExemption, 13:f2}" +"  "+
+                      $"{item.StampExemption, 13:f2}" +"  "+
+                      $"{item.GrossSalary, 13:f2}");
 }
 
 
 
 
 
-
-
-// Console.WriteLine($"Net Maaş:                     {result.NetSalary, 10:f2} TL");
-// Console.WriteLine($"İşsizlik Sigortası Kesintisi: {result.EmployeeUnemploymentInsuranceContributionAmount, 10:f2} TL");
-// Console.WriteLine($"SGK Kesintisi:                {result.EmployeeSSContributionAmount,10:f2} TL");
-// Console.WriteLine($"K.Gelir Vergisi Matrahı:      {result.CumulativeIncomeTaxBase, 10:f2} TL");
-// Console.WriteLine($"Gelir Vergisi Matrahı:        {result.IncomeTaxBase, 10:f2} TL");
-// Console.WriteLine($"Gelir Vergisi:                {result.IncomeTax,10:f2} TL");
-// Console.WriteLine($"Gelir Vergisi İstisnası:      {result.IncomeTaxExemption,10:f2} TL");
-// Console.WriteLine($"Damga Vergisi istinası;       {result.StampExemption,10:f2} TL");
-// Console.WriteLine($"Damga Vergisi:                {result.StampTax, 10:f2} TL");
-// Console.WriteLine($"Brüt Maaş:                    {result.GrossSalary, 10:f2} TL");
 
