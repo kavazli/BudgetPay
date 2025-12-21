@@ -13,7 +13,12 @@ public class EmployeeAnnualPayroll
     }
 
     public void Add(MonthlyPayroll monthlyPayroll)
-    {
+    {   
+        if (monthlyPayroll == null)
+        {
+            throw new ArgumentNullException(nameof(monthlyPayroll));
+        }
+
         AnnualPayrolls.Add(monthlyPayroll);
     }
 }

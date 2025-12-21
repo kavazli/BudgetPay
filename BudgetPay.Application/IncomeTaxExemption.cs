@@ -7,7 +7,7 @@ public static class IncomeTaxExemption
     public static decimal IncomeExemption(int month)
     {
 
-        if (month < 1 || month > 12)
+        if (month < 1 || month > 12 || month == 0)
         {
             throw new IndexOutOfRangeException(nameof(month));
         }

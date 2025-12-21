@@ -11,21 +11,6 @@ public class SocialSecurityParameters
     public decimal SocialSecurityCeiling { get; }
 
 
-    public static SocialSecurityParameters Default { get; } =
-    new SocialSecurityParameters(
-        employeeSocialSecurityRate: 0.14m,
-        employeeUnemploymentInsuranceRate: 0.01m,
-        employerSocialSecurityRate: 0.205m,
-        employerUnemploymentInsuranceRate: 0.02m,
-        socialSecurityCeiling: 195041.40m
-    );
-
-
-
-
-
-
-
     public SocialSecurityParameters(
         decimal employeeSocialSecurityRate,
         decimal employeeUnemploymentInsuranceRate,

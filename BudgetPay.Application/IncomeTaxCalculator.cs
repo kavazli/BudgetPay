@@ -11,6 +11,16 @@ public static class IncomeTaxCalculator
 
     public static decimal CalculateTax(decimal taxbase,EmployeeCumulativeTaxState state)
     {   
+
+        if (state == null)
+        {
+            throw new ArgumentNullException(nameof(state), "Employee cumulative tax state cannot be null.");
+        }
+        if (taxbase < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(taxbase), "Tax base cannot be negative.");
+        }
+
         decimal previousBase = state.CumulativeIncomeTaxBase;
         decimal curreBase = previousBase + taxbase;
 

@@ -54,7 +54,7 @@ public class PayrollResultExcelExporter
         for(int j = 0; j < annualPayroll.AnnualPayrolls.Count; j++)
         {
             var monthlyPayroll = annualPayroll.AnnualPayrolls[j];
-            worksheet.Cell(row, 1).Value  = monthlyPayroll.Employee.FullName;
+            worksheet.Cell(row, 1).Value  = monthlyPayroll.Fullname;
             worksheet.Cell(row, 2).Value  = monthlyPayroll.Month;
             worksheet.Cell(row, 3).Value  = monthlyPayroll.Year;
             worksheet.Cell(row, 4).Value  = monthlyPayroll.NetSalary;

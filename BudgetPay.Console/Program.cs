@@ -42,7 +42,7 @@ StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTax
 PayrollCalculator calculator = new PayrollCalculator();
 
 Employee gokhan = new();
-gokhan.BaseSalary = 900000.00m;
+gokhan.BaseSalary = 132000.00m;
 
 List<MonthlyPayroll> result = calculator.CalculateAnnualPayrollFromGross(gokhan);
 

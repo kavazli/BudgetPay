@@ -50,7 +50,7 @@ public class PayrollCalculator
 
         MonthlyPayroll pay = new MonthlyPayroll();
 
-        pay.Employee = employee;
+        pay.Fullname = employee.FullName;
         pay.Year = 0;
         pay.Month = month;
         pay.NetSalary = employee.BaseSalary;

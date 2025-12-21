@@ -11,6 +11,7 @@ public class Employee
     public string Department { get; set; } = string.Empty;
     public string CostCenter { get; set; } = string.Empty;
     public string PayType { get; set; } = string.Empty;
+    public string Status { get; set; } = string.Empty;
 
     public decimal BaseSalary { get; set; }
     public decimal SalaryIncreaseRate { get; set; }
