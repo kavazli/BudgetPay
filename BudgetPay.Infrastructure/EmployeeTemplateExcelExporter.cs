@@ -38,6 +38,12 @@ public class EmployeeTemplateExcelExporter
         worksheet.RangeUsed()?.SetAutoFilter();
         worksheet.Columns().AdjustToContents();
 
+
+        string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        string filePath = System.IO.Path.Combine(desktopPath, "ResultTable.xlsx");
+
+        TemplateWorkbook.SaveAs(filePath);
+
         return TemplateWorkbook;
     }
 

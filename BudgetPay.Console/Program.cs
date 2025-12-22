@@ -33,7 +33,7 @@ List<IncomeTaxBracket> ProgramBrackets = new()
 
 IncomeTaxBrackets ProgramIncomeTaxBrackets = new(ProgramBrackets);
 MinimumWage ProgramMinimumWage = new MinimumWage(26005.50m, 22104.67m);
-SocialSecurityParameters ProgramSocialSecurityParameters = new SocialSecurityParameters(0.14m, 0.01m, 0.205m, 0.02m, 195041.40m);
+SocialSecurityParameters ProgramSocialSecurityParameters = new SocialSecurityParameters(0.14m, 0.01m, 0.1575m, 0.02m, 195041.40m);
 StampTax ProgramStampTax = new StampTax(0.00759m);
 
 StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTaxBrackets, ProgramStampTax, ProgramMinimumWage);
@@ -43,26 +43,36 @@ PayrollCalculator calculator = new PayrollCalculator();
 
 Employee gokhan = new();
 gokhan.BaseSalary = 132000.00m;
+gokhan.Department = "IK";
+gokhan.NationalIdNumber = "47803284220";
+gokhan.CostCenter = "MERKEZ";
+gokhan.FullName = "Gökhan KAYA";
 
 List<MonthlyPayroll> result = calculator.CalculateAnnualPayrollFromGross(gokhan);
 
-
+/*
 foreach (MonthlyPayroll item in result)
 {
-    Console.WriteLine($"{item.NetSalary, 13:N2}" +"  "+
-                      $"{item.EmployeeSSContributionAmount, 13:N2}" +"  "+
-                      $"{item.EmployeeUnemploymentInsuranceContributionAmount, 13:N2}" +"  "+
+    Console.WriteLine($"{item.Fullname, 10:N2}" +"  "+
+                      $"{item.NetSalary, 10:N2}" +"  "+
+                      $"{item.EmployeeSSContributionAmount, 10:N2}" +"  "+
+                      $"{item.EmployeeUnemploymentInsuranceContributionAmount, 10:N2}" +"  "+
                       $"{item.IncomeTaxBase, 13:N2}" +"  "+
                       $"{item.CumulativeIncomeTaxBase, 13:N2}" +"  "+
                       $"{item.IncomeTax, 13:N2}" +"  "+
-                      $"{item.StampTax, 13:N2}" +"  "+
-                      $"{item.IncomeTaxExemption, 13:N2}" +"  "+
-                      $"{item.StampExemption, 13:N2}" +"  "+
-                      $"{item.GrossSalary, 13:N2}");
+                      $"{item.StampTax, 10:N2}" +"  "+
+                      $"{item.IncomeTaxExemption, 10:N2}" +"  "+
+                      $"{item.StampExemption, 10:N2}" +"  "+
+                      $"{item.GrossSalary, 10:N2}" +"  "+
+                      $"{item.EmployerSSContributionAmount, 10:N2}" +"  "+
+                      $"{item.EmployerUnemploymentInsuranceContributionAmount, 10:N2}" +"  "+
+                      $"{item.TotalEmployerCost, 10:N2}");
 }
 
+PayrollResultExcelExporter exporter = new PayrollResultExcelExporter();
+var workbook = exporter.ExportToExcel(result);
 
+*/
 
-
-
-
+EmployeeTemplateExcelExporter templateExporter = new EmployeeTemplateExcelExporter();
+var templateWorkbook = templateExporter.GetTemplateWorkbook();

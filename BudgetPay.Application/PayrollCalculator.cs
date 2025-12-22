@@ -51,14 +51,20 @@ public class PayrollCalculator
         MonthlyPayroll pay = new MonthlyPayroll();
 
         pay.Fullname = employee.FullName;
+        pay.NationalIdNumber = employee.NationalIdNumber;
+        pay.Department = employee.Department;
+        pay.CostCenter = employee.CostCenter;
+
         pay.Year = 0;
         pay.Month = month;
+        
         pay.NetSalary = employee.BaseSalary;
         pay.GrossSalary = employee.BaseSalary;
 
         // Social Security Contributions
         pay.EmployeeSSContributionAmount = SocialSecurityCalculator.EmployeeSocialSecurityResult(pay.GrossSalary);
         pay.EmployeeUnemploymentInsuranceContributionAmount = SocialSecurityCalculator.EmployeeUnemploymentInsuranceResult(pay.GrossSalary);
+        
         // Income Tax and Stamp Tax
         pay.IncomeTaxBase = pay.GrossSalary - (pay.EmployeeSSContributionAmount + pay.EmployeeUnemploymentInsuranceContributionAmount);
         pay.CumulativeIncomeTaxBase = state.CumulativeIncomeTaxBase + pay.IncomeTaxBase;
@@ -69,12 +75,13 @@ public class PayrollCalculator
 
 
         pay.NetSalary = pay.GrossSalary - (pay.EmployeeSSContributionAmount + pay.EmployeeUnemploymentInsuranceContributionAmount + pay.IncomeTax + pay.StampTax);
-        pay.TotalEmployerCost = pay.GrossSalary;
+        
 
         // Employer Contributions
-        pay.EmployerSSContributionAmount = 0m;
-        pay.EmployerUnemploymentInsuranceContributionAmount = 0m;
+        pay.EmployerSSContributionAmount = pay.GrossSalary * StatutoryParameters.SocialSecurityParameters.EmployerSocialSecurityRate;   
+        pay.EmployerUnemploymentInsuranceContributionAmount = pay.GrossSalary * StatutoryParameters.SocialSecurityParameters.EmployerUnemploymentInsuranceRate;
         pay.IncentiveDiscount = 0m;
+        pay.TotalEmployerCost = pay.GrossSalary + pay.EmployerSSContributionAmount + pay.EmployerUnemploymentInsuranceContributionAmount;
 
 
 
