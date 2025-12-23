@@ -1,9 +1,8 @@
-using System;
-using System.Runtime.InteropServices;
-using BudgetPay.Domain;
 
 namespace BudgetPay.Application;
 
+
+// Damga vergisi hesaplayıcı sınıfı
 public static class StampTaxCalculator
 {   
     

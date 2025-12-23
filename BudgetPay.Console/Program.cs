@@ -14,6 +14,7 @@ workbook.SaveAs(filePath);
 Console.WriteLine("Employee template masaüstüne oluşturuldu.");
 */
 
+using System;
 using System.Collections.Generic;
 using BudgetPay.Application;
 using BudgetPay.Domain;
@@ -21,7 +22,9 @@ using BudgetPay.Infrastructure;
 using DocumentFormat.OpenXml.Office.CustomUI;
 
 
-// Statutory Payroll Parameters
+DateTime now = DateTime.Now;
+
+// -------------- Statutory Payroll Parameters
 List<IncomeTaxBracket> ProgramBrackets = new()
 {
     new IncomeTaxBracket(0m, 158000m, 0.15m, 0m),
@@ -35,20 +38,33 @@ IncomeTaxBrackets ProgramIncomeTaxBrackets = new(ProgramBrackets);
 MinimumWage ProgramMinimumWage = new MinimumWage(26005.50m, 22104.67m);
 SocialSecurityParameters ProgramSocialSecurityParameters = new SocialSecurityParameters(0.14m, 0.01m, 0.1575m, 0.02m, 195041.40m);
 StampTax ProgramStampTax = new StampTax(0.00759m);
+// -------------- Statutory Payroll Parameters
+
+
 
 StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTaxBrackets, ProgramStampTax, ProgramMinimumWage);
 
 
+EmployeeExcelImporter importer = new EmployeeExcelImporter();
+List<Employee> employees = importer.ExcelImporter(@"C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\EmployeeTemplate.xlsx");
+
+
+
 PayrollCalculator calculator = new PayrollCalculator();
+List<MonthlyPayroll> result = new List<MonthlyPayroll>();
+for(int i = 0; i < employees.Count; i++)
+{
+    var list = calculator.CalculateAnnualPayrollFromGross(employees[i]);
+    result.AddRange(list); 
+}
 
-Employee gokhan = new();
-gokhan.BaseSalary = 132000.00m;
-gokhan.Department = "IK";
-gokhan.NationalIdNumber = "47803284220";
-gokhan.CostCenter = "MERKEZ";
-gokhan.FullName = "Gökhan KAYA";
+PayrollResultExcelExporter exporter = new PayrollResultExcelExporter();
+var workbook = exporter.ExportToExcel(result);
 
-List<MonthlyPayroll> result = calculator.CalculateAnnualPayrollFromGross(gokhan);
+DateTime end = DateTime.Now;
+TimeSpan duration = end - now;
+
+Console.WriteLine("çalişma süresi" + duration);
 
 /*
 foreach (MonthlyPayroll item in result)
@@ -74,5 +90,5 @@ var workbook = exporter.ExportToExcel(result);
 
 */
 
-EmployeeTemplateExcelExporter templateExporter = new EmployeeTemplateExcelExporter();
-var templateWorkbook = templateExporter.GetTemplateWorkbook();
+// EmployeeTemplateExcelExporter templateExporter = new EmployeeTemplateExcelExporter();
+// var templateWorkbook = templateExporter.GetTemplateWorkbook();

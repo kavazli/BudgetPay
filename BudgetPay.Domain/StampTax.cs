@@ -1,7 +1,8 @@
-using System;
 
 namespace BudgetPay.Domain;
 
+
+// Damga vergisini temsil eden sınıf
 public class StampTax
 {
     public decimal Rate { get; }

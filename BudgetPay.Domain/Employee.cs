@@ -1,8 +1,8 @@
-using System;
-using System.Reflection.Emit;
 
 namespace BudgetPay.Domain;
 
+
+// Dışarıdan veri alıp, veri tutmak için kullanılan entity
 public class Employee
 {
     public string FullName { get; set; } = string.Empty;

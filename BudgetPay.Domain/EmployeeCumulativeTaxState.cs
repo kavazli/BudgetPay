@@ -1,7 +1,8 @@
-using System;
 
 namespace BudgetPay.Domain;
 
+
+// Yıllık gelir vergisi matrahını tutmak için kullanılan entity
 public class EmployeeCumulativeTaxState
 {
     public decimal CumulativeIncomeTaxBase { get; set; }

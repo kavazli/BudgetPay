@@ -1,7 +1,8 @@
-using System;
 
 namespace BudgetPay.Domain;
 
+
+// Yıllık gelir vergisi dilimini temsil eden sınıf
 public class IncomeTaxBracket
 {
     public decimal MinAmount { get; }
@@ -9,6 +10,8 @@ public class IncomeTaxBracket
     public decimal Rate { get; }
     public decimal More { get; }
 
+    
+    // Yapıcı metot, gelir vergisi dilimi parametrelerini alır ve doğrular
     public IncomeTaxBracket(decimal minAmount, decimal maxAmount, decimal rate, decimal more)
     {
         if (minAmount < 0)

@@ -1,7 +1,8 @@
-using System;
 
 namespace BudgetPay.Domain;
 
+
+// Asgari ücretin netini ve brütünü temsil eden sınıf
 public class MinimumWage
 {
     public decimal GrossAmount { get; }

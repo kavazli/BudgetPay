@@ -1,7 +1,8 @@
-using System;
 
 namespace BudgetPay.Domain;
 
+
+// Aylık bordroyu temsil eden sınıf
 public class MonthlyPayroll
 {   
     public string Fullname { get; set; } = string.Empty;

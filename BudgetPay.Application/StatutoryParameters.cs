@@ -1,7 +1,8 @@
-using System;
-using System.Diagnostics.Metrics;
+
 using BudgetPay.Domain;
 
+
+// Yasal Pametreleri ve hesaplama için gerekli sabit değerleri tutan sınıf, her alanda kullanabilmek için statik olarak tanımlanmıştır
 namespace BudgetPay.Application;
 
 public static class StatutoryParameters

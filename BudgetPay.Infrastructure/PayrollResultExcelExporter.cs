@@ -1,9 +1,10 @@
-using System;
+
 using BudgetPay.Domain;
 using ClosedXML.Excel;
 
 namespace BudgetPay.Infrastructure;
 
+// Payroll sonuçlarını Excel dosyasına aktaran bir sınıf
 public class PayrollResultExcelExporter
 {
     
@@ -31,7 +32,7 @@ public class PayrollResultExcelExporter
 
     
 
-    
+    // Excel dosyasına aktarma metodu
     public XLWorkbook ExportToExcel(List<MonthlyPayroll> _employeeAnnualPayrolls)
     {
     var workbook = PayrollResultExcelHeaders(Headers);
@@ -39,6 +40,7 @@ public class PayrollResultExcelExporter
 
     int row = 2;
 
+    //
     for(int i = 0; i < _employeeAnnualPayrolls.Count; i++)
     {
         var monthlyPayroll = _employeeAnnualPayrolls[i];
@@ -63,6 +65,7 @@ public class PayrollResultExcelExporter
         
     }
     
+    // Excel dosyasını düzenleme
     worksheet.SheetView.FreezeRows(1);
     worksheet.RangeUsed()?.SetAutoFilter();
     worksheet.Columns().AdjustToContents();
@@ -74,7 +77,7 @@ public class PayrollResultExcelExporter
     return workbook;
 }
     
-
+    // Excel başlıklarını oluşturan metot
     private XLWorkbook PayrollResultExcelHeaders(string[] headers)
     {
         var HeadersExcel = new XLWorkbook();

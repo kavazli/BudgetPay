@@ -1,9 +1,11 @@
-using System;
 
 namespace BudgetPay.Application;
 
+
+// Gelir vergisi muafiyeti hesaplayan sınıf
 public static class IncomeTaxExemption
-{
+{   
+    // Gelir vergisi muafiyetini hesaplayan metot
     public static decimal IncomeExemption(int month)
     {
 
@@ -23,18 +25,19 @@ public static class IncomeTaxExemption
         decimal netAmount = StatutoryParameters.MinimumWage.NetAmount;
         decimal result = 0;
 
+        // Eğer vergi matrahı muafiyeti asgari ücretin birinci vergi diliminden az ise birinci dilim oranı ile çarpılır
         if (taxBaseExemption < bracket1)
         {
             return result = netAmount * bracket1Rate;
         }
         else if (taxBaseExemption > bracket1 && (taxBaseExemption - bracket1) < netAmount)              
-        {
+        {   // Eğer vergi matrahı muafiyeti asgari ücretin birinci vergi diliminden büyük ve ikinci vergi diliminden az ise
             return result = ((taxBaseExemption - bracket1) * bracket2Rate) + ((netAmount - (taxBaseExemption - bracket1)) * bracket1Rate);
                      
         }
         else if (taxBaseExemption > bracket1 && (taxBaseExemption - bracket1) > netAmount)
                 
-        {
+        {   // Eğer vergi matrahı muafiyeti asgari ücretin ikinci vergi diliminden büyük ise ikinci dilim oranı ile çarpılır
             return result = netAmount * bracket2Rate;
         }
         else

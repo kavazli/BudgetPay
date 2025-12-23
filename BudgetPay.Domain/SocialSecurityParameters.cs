@@ -1,7 +1,7 @@
-using System;
 
 namespace BudgetPay.Domain;
 
+// Sosyal güvenlik parametrelerini temsil eden sınıf
 public class SocialSecurityParameters
 {
     public decimal EmployeeSocialSecurityRate { get; }
@@ -11,6 +11,7 @@ public class SocialSecurityParameters
     public decimal SocialSecurityCeiling { get; }
 
 
+    // Yapıcı metot, sosyal güvenlik parametrelerini alır ve doğrular
     public SocialSecurityParameters(
         decimal employeeSocialSecurityRate,
         decimal employeeUnemploymentInsuranceRate,
@@ -34,6 +35,7 @@ public class SocialSecurityParameters
         SocialSecurityCeiling = socialSecurityCeiling;
     }
 
+    // Oranları doğrulayan yardımcı metot
     private static decimal ValidateRate(decimal rate, string paramName)
     {
         if (rate <= 0 || rate >= 1)

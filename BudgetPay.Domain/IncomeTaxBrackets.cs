@@ -1,7 +1,8 @@
-using System;
 
 namespace BudgetPay.Domain;
 
+
+// Yıllık gelir vergisi dilimlerini temsil eden sınıf
 public class IncomeTaxBrackets
 {
     private readonly List<IncomeTaxBracket> _brackets;
@@ -9,6 +10,7 @@ public class IncomeTaxBrackets
     public IReadOnlyList<IncomeTaxBracket> Brackets => _brackets;
 
 
+    // Yapıcı metot, vergi dilimlerini alır ve doğrular, sıralar, çakışmaları kontrol eder
     public IncomeTaxBrackets(IEnumerable<IncomeTaxBracket> brackets)
     {
         if (brackets == null || !brackets.Any())
@@ -25,6 +27,8 @@ public class IncomeTaxBrackets
         }
     }
 
+    
+    // Belirli bir gelir için uygun vergi dilimini döner
     public IncomeTaxBracket GetBracketFor(decimal income)
     {
         foreach (var bracket in _brackets)

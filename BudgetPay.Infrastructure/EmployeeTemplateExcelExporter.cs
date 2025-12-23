@@ -1,8 +1,9 @@
-using System;
-using ClosedXML.Excel;
 
+using ClosedXML.Excel;
 namespace BudgetPay.Infrastructure;
 
+
+// Excel şablon dosyasını oluşturan bir sınıf
 public class EmployeeTemplateExcelExporter
 {
     private static readonly string[] Headers = new[]
@@ -21,7 +22,7 @@ public class EmployeeTemplateExcelExporter
         "VoucherFrequency"
     };
     
-   
+   // Şablon Excel dosyasını oluşturan metot
     public XLWorkbook GetTemplateWorkbook()
     {
         XLWorkbook TemplateWorkbook = new XLWorkbook();

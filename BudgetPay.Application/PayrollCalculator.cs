@@ -1,13 +1,14 @@
 
-using System;
-using System.ComponentModel.DataAnnotations;
+
 using BudgetPay.Domain;
+
 
 namespace BudgetPay.Application;
 
+// Aylık bordro hesaplayıcı sınıfı
 public class PayrollCalculator
 {
-
+    // Yıllık bordroyu brüt maaştan hesaplayan metot
     public List<MonthlyPayroll> CalculateAnnualPayrollFromGross(Employee employee)
     {
         if (employee == null)
@@ -29,7 +30,8 @@ public class PayrollCalculator
 
         return list.AnnualPayrolls;
     }
-
+    
+    // Aylık bordroyu brüt maaştan hesaplayan metot
     private MonthlyPayroll CalculateMonthlyPayrollFromGross(Employee employee, EmployeeCumulativeTaxState state, int month)
     {
 
@@ -78,8 +80,8 @@ public class PayrollCalculator
         
 
         // Employer Contributions
-        pay.EmployerSSContributionAmount = pay.GrossSalary * StatutoryParameters.SocialSecurityParameters.EmployerSocialSecurityRate;   
-        pay.EmployerUnemploymentInsuranceContributionAmount = pay.GrossSalary * StatutoryParameters.SocialSecurityParameters.EmployerUnemploymentInsuranceRate;
+        pay.EmployerSSContributionAmount = SocialSecurityCalculator.EmployerSocialSecurityResult(pay.GrossSalary);   
+        pay.EmployerUnemploymentInsuranceContributionAmount = SocialSecurityCalculator.EmployerUnemploymentInsuranceResult(pay.GrossSalary);
         pay.IncentiveDiscount = 0m;
         pay.TotalEmployerCost = pay.GrossSalary + pay.EmployerSSContributionAmount + pay.EmployerUnemploymentInsuranceContributionAmount;
 

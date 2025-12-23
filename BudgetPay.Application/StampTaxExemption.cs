@@ -1,7 +1,8 @@
-using System;
 
 namespace BudgetPay.Application;
 
+
+// Damga vergisi muafiyeti hesaplayan sınıf
 public static class StampTaxExemption
 {
     public static decimal StampExemption()
