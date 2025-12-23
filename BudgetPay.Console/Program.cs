@@ -1,25 +1,6 @@
 ﻿
-/*
-using BudgetPay.Infrastructure;
-
-var exporter = new EmployeeTemplateExcelExporter();
-
-var workbook = exporter.GetTemplateWorkbook();
-
-var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-var filePath = Path.Combine(desktopPath, "EmployeeTemplate.xlsx");
-
-workbook.SaveAs(filePath);
-
-Console.WriteLine("Employee template masaüstüne oluşturuldu.");
-*/
-
-using System;
-using System.Collections.Generic;
 using BudgetPay.Application;
 using BudgetPay.Domain;
-using BudgetPay.Infrastructure;
-using DocumentFormat.OpenXml.Office.CustomUI;
 
 
 DateTime now = DateTime.Now;
@@ -41,54 +22,16 @@ StampTax ProgramStampTax = new StampTax(0.00759m);
 // -------------- Statutory Payroll Parameters
 
 
-
+// Initialize Statutory Parameters
 StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTaxBrackets, ProgramStampTax, ProgramMinimumWage);
 
 
-EmployeeExcelImporter importer = new EmployeeExcelImporter();
-List<Employee> employees = importer.ExcelImporter(@"C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\EmployeeTemplate.xlsx");
 
-
-
-PayrollCalculator calculator = new PayrollCalculator();
-List<MonthlyPayroll> result = new List<MonthlyPayroll>();
-for(int i = 0; i < employees.Count; i++)
-{
-    var list = calculator.CalculateAnnualPayrollFromGross(employees[i]);
-    result.AddRange(list); 
-}
-
-PayrollResultExcelExporter exporter = new PayrollResultExcelExporter();
-var workbook = exporter.ExportToExcel(result);
+PayrollExcelWorkflow workflow = new PayrollExcelWorkflow(@"C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\EmployeeTemplate.xlsx");
+workflow.run();
 
 DateTime end = DateTime.Now;
 TimeSpan duration = end - now;
 
 Console.WriteLine("çalişma süresi" + duration);
 
-/*
-foreach (MonthlyPayroll item in result)
-{
-    Console.WriteLine($"{item.Fullname, 10:N2}" +"  "+
-                      $"{item.NetSalary, 10:N2}" +"  "+
-                      $"{item.EmployeeSSContributionAmount, 10:N2}" +"  "+
-                      $"{item.EmployeeUnemploymentInsuranceContributionAmount, 10:N2}" +"  "+
-                      $"{item.IncomeTaxBase, 13:N2}" +"  "+
-                      $"{item.CumulativeIncomeTaxBase, 13:N2}" +"  "+
-                      $"{item.IncomeTax, 13:N2}" +"  "+
-                      $"{item.StampTax, 10:N2}" +"  "+
-                      $"{item.IncomeTaxExemption, 10:N2}" +"  "+
-                      $"{item.StampExemption, 10:N2}" +"  "+
-                      $"{item.GrossSalary, 10:N2}" +"  "+
-                      $"{item.EmployerSSContributionAmount, 10:N2}" +"  "+
-                      $"{item.EmployerUnemploymentInsuranceContributionAmount, 10:N2}" +"  "+
-                      $"{item.TotalEmployerCost, 10:N2}");
-}
-
-PayrollResultExcelExporter exporter = new PayrollResultExcelExporter();
-var workbook = exporter.ExportToExcel(result);
-
-*/
-
-// EmployeeTemplateExcelExporter templateExporter = new EmployeeTemplateExcelExporter();
-// var templateWorkbook = templateExporter.GetTemplateWorkbook();

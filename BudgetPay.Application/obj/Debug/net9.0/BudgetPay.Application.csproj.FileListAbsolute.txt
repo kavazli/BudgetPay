@@ -62,3 +62,5 @@ C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\BELGELERİM\VsStudioProjec
 C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\BELGELERİM\VsStudioProjectsC#\BudgetPay\BudgetPay.Application\obj\Debug\net9.0\refint\BudgetPay.Application.dll
 C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\BELGELERİM\VsStudioProjectsC#\BudgetPay\BudgetPay.Application\obj\Debug\net9.0\BudgetPay.Application.pdb
 C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\BELGELERİM\VsStudioProjectsC#\BudgetPay\BudgetPay.Application\obj\Debug\net9.0\ref\BudgetPay.Application.dll
+C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\BELGELERİM\VsStudioProjectsC#\BudgetPay\BudgetPay.Application\bin\Debug\net9.0\BudgetPay.Infrastructure.dll
+C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\BELGELERİM\VsStudioProjectsC#\BudgetPay\BudgetPay.Application\bin\Debug\net9.0\BudgetPay.Infrastructure.pdb

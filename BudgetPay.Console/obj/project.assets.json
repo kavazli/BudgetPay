@@ -126,7 +126,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "BudgetPay.Domain": "1.0.0"
+          "BudgetPay.Domain": "1.0.0",
+          "BudgetPay.Infrastructure": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BudgetPay.Application.dll": {}

@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BudgetPay.Domain\BudgetPay.Domain.csproj" />
+    <ProjectReference Include="..\BudgetPay.Infrastructure\BudgetPay.Infrastructure.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -14,9 +14,9 @@ public static class IncomeTaxExemption
             throw new IndexOutOfRangeException(nameof(month));
         }
 
-        decimal taxBaseExemption = StatutoryParameters.MinimumWage.NetAmount * month;
+        decimal taxBaseExemption = StatutoryParameters.MinimumWage!.NetAmount * month;
 
-        decimal bracket1 = StatutoryParameters.IncomeTaxBrackets.Brackets[0].MaxAmount;
+        decimal bracket1 = StatutoryParameters.IncomeTaxBrackets!.Brackets[0].MaxAmount;
         decimal bracket1Rate = StatutoryParameters.IncomeTaxBrackets.Brackets[0].Rate;
 
         decimal bracket2 = StatutoryParameters.IncomeTaxBrackets.Brackets[1].MaxAmount;

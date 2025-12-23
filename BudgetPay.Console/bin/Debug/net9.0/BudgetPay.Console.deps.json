@@ -94,7 +94,8 @@
       },
       "BudgetPay.Application/1.0.0": {
         "dependencies": {
-          "BudgetPay.Domain": "1.0.0"
+          "BudgetPay.Domain": "1.0.0",
+          "BudgetPay.Infrastructure": "1.0.0"
         },
         "runtime": {
           "BudgetPay.Application.dll": {
