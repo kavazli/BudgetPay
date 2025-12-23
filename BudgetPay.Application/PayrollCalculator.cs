@@ -7,7 +7,8 @@ namespace BudgetPay.Application;
 
 // Aylık bordro hesaplayıcı sınıfı
 public class PayrollCalculator
-{
+{   
+
     // Yıllık bordroyu brüt maaştan hesaplayan metot
     public List<MonthlyPayroll> CalculateAnnualPayrollFromGross(Employee employee)
     {
@@ -26,8 +27,6 @@ public class PayrollCalculator
             state.AddMonthlyIncomeTaxBase(pay.IncomeTaxBase);
             list.Add(pay);
         }
-
-
         return list.AnnualPayrolls;
     }
     
@@ -84,8 +83,6 @@ public class PayrollCalculator
         pay.EmployerUnemploymentInsuranceContributionAmount = SocialSecurityCalculator.EmployerUnemploymentInsuranceResult(pay.GrossSalary);
         pay.IncentiveDiscount = 0m;
         pay.TotalEmployerCost = pay.GrossSalary + pay.EmployerSSContributionAmount + pay.EmployerUnemploymentInsuranceContributionAmount;
-
-
 
         return pay;
     }
