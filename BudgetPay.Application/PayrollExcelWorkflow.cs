@@ -22,7 +22,7 @@ public class PayrollExcelWorkflow
 
 
     // Bordro işlemlerini çalıştıran metot
-    public void run()
+    public void Run()
     {
         var EmloyeesList = ImportEmployees();
 

@@ -15,7 +15,7 @@ public class Employee
 
     public decimal BaseSalary { get; set; }
     public decimal SalaryIncreaseRate { get; set; }
-
+    
     public decimal PlannedMonthlyOvertimeHours { get; set; }
 
     public decimal PlannedBonusAmount { get; set; }

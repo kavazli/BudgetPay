@@ -29,7 +29,7 @@ public class SocialSecurityParameters
 
         if (socialSecurityCeiling <= 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(socialSecurityCeiling), "Social security ceiling must be greater than 0.");
+            throw new ArgumentOutOfRangeException(nameof(socialSecurityCeiling));
         }
             
         SocialSecurityCeiling = socialSecurityCeiling;
@@ -39,7 +39,7 @@ public class SocialSecurityParameters
     private static decimal ValidateRate(decimal rate, string paramName)
     {
         if (rate <= 0 || rate >= 1)
-            throw new ArgumentOutOfRangeException(paramName, "Rate must be greater than 0.");
+            throw new ArgumentOutOfRangeException(nameof(paramName));
         return rate;
     }
 

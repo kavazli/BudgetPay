@@ -14,37 +14,37 @@ public class PayrollCalculator
     {
         if (employee == null)
         {
-            throw new NullReferenceException(nameof(employee));
+            throw new ArgumentNullException(nameof(employee));
         }
 
-        EmployeeAnnualPayroll list = new();
-        MonthlyPayroll pay = new();
+        EmployeeAnnualPayroll Grosslist = new();
+        MonthlyPayroll pay;
         EmployeeCumulativeTaxState state = new();
         for (int i = 1; i <= 12; i++)
         {
 
             pay = CalculateMonthlyPayrollFromGross(employee, state, i);
             state.AddMonthlyIncomeTaxBase(pay.IncomeTaxBase);
-            list.Add(pay);
+            Grosslist.Add(pay);
         }
-        return list.AnnualPayrolls;
+        return Grosslist.AnnualPayrolls;
     }
     
     // Aylık bordroyu brüt maaştan hesaplayan metot
-    private MonthlyPayroll CalculateMonthlyPayrollFromGross(Employee employee, EmployeeCumulativeTaxState state, int month)
+    public MonthlyPayroll CalculateMonthlyPayrollFromGross(Employee employee, EmployeeCumulativeTaxState state, int month)
     {
 
         if (employee == null)
         {
-            throw new NullReferenceException(nameof(employee));
+            throw new ArgumentNullException(nameof(employee));
         }
         if (state == null)
         {
-            throw new NullReferenceException(nameof(employee));
+            throw new ArgumentNullException(nameof(state));
         }
         if (month < 1 || month > 12)
         {
-            throw new IndexOutOfRangeException(nameof(month));
+            throw new ArgumentOutOfRangeException(nameof(month));
         }
 
 
@@ -59,7 +59,7 @@ public class PayrollCalculator
         pay.Year = 0;
         pay.Month = month;
         
-        pay.NetSalary = employee.BaseSalary;
+        
         pay.GrossSalary = employee.BaseSalary;
 
         // Social Security Contributions
