@@ -26,76 +26,12 @@ StampTax ProgramStampTax = new StampTax(0.00759m);
 StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTaxBrackets, ProgramStampTax, ProgramMinimumWage);
 
 
-Employee employee = new Employee
-{
-    FullName = "John Doe",
-    NationalIdNumber = "12345678901",
-    Department = "Finance",
-    CostCenter = "FC1001",
-    PayType = "Monthly",
-    Status = "Active",
-    BaseSalary = 150000m
-    
-};
 
-PayrollCalculator calculator = new PayrollCalculator();
+PayrollExcelWorkflow workflow = new PayrollExcelWorkflow(@"/Users/gokhankaya/Desktop/ResultTable.xlsx");
+workflow.Run();
 
-EmployeeCumulativeTaxState state = new EmployeeCumulativeTaxState();
-{
-    state.CumulativeIncomeTaxBase = 0m;
-}
+DateTime end = DateTime.Now;
+TimeSpan duration = end - now;
 
-
-MonthlyPayroll pay = new MonthlyPayroll();
-
-decimal netUcret =employee.BaseSalary;
-decimal fark = 0m;
-decimal tolerans = 0.00001m;
-
-
-for(int i=0; i < 200; i++)
-{
-
-    pay = calculator.CalculateMonthlyPayrollFromGross(employee, state, 1);
-    fark = netUcret - pay.NetSalary;
-    if(fark < tolerans)
-    {
-        break;
-    }
-    
-    if(fark > tolerans)
-    {
-        employee.BaseSalary = pay.GrossSalary + fark;
-    }
-
-   
-}
-
-// System.Console.WriteLine($"{pay.GrossSalary:f2} - {Math.Ceiling(pay.NetSalary):f2}");
-
-System.Console.WriteLine($"Brüt Ücret: {pay.GrossSalary:f2}");
-System.Console.WriteLine($"SGK İşçi Payı: {pay.EmployeeSSContributionAmount:f2}");
-System.Console.WriteLine($"İşsizlik Sigortası İşçi Payı: {pay.EmployeeUnemploymentInsuranceContributionAmount:f2}");
-System.Console.WriteLine($"Gelir kümülatif Matrahı: {pay.CumulativeIncomeTaxBase:f2}");
-System.Console.WriteLine($"Gelir Vergisi Matrahı: {pay.IncomeTaxBase:f2}");
-System.Console.WriteLine($"Gelir Vergisi: {pay.IncomeTax:f2}");
-System.Console.WriteLine($"Damga Vergisi: {pay.StampTax:f2}");
-System.Console.WriteLine($"Gelir Vergisi Muafiyeti: {pay.IncomeTaxExemption:f2}");
-System.Console.WriteLine($"Damga Vergisi Muafiyeti: {pay.StampExemption:f2}");
-
-System.Console.WriteLine($"Net Ücret: {pay.NetSalary:f2}");
-
-
-
-
-
-
-
-// PayrollExcelWorkflow workflow = new PayrollExcelWorkflow(@"C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\EmployeeTemplate.xlsx");
-// workflow.Run();
-
-// DateTime end = DateTime.Now;
-// TimeSpan duration = end - now;
-
-// Console.WriteLine("çalişma süresi" + duration);
+Console.WriteLine("çalişma süresi" + duration);
 

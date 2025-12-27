@@ -5,24 +5,46 @@ namespace BudgetPay.Application;
 
 public static class NetToGrossSolver
 {
-    public static MonthlyPayroll NetToGrossIteration(Employee employee)
+    public static MonthlyPayroll NetToGrossIteration(Employee employee, EmployeeCumulativeTaxState state, int month)
     {   
-        decimal NetSalary = employee.BaseSalary;
-        
-        Employee Tempemployee= employee;
-        
-        PayrollCalculator PayrollCalculator = new PayrollCalculator();
-       
-        MonthlyPayroll Iteration = new MonthlyPayroll();
-
-        while (NetSalary != Iteration.NetSalary)
+        Employee empCopy = new Employee
         {
-            Iteration = PayrollCalculator.CalculateMonthlyPayrollFromGross(Tempemployee, new EmployeeCumulativeTaxState(), 1);
-            Tempemployee.BaseSalary =Iteration.GrossSalary;
+            FullName = employee.FullName,
+            NationalIdNumber = employee.NationalIdNumber,
+            Department = employee.Department,
+            CostCenter = employee.CostCenter,
+            PayType = employee.PayType,
+            Status = employee.Status,
+            BaseSalary = employee.BaseSalary,
+            SalaryIncreaseRate = employee.SalaryIncreaseRate,
+            PlannedMonthlyOvertimeHours = employee.PlannedMonthlyOvertimeHours,
+            PlannedBonusAmount = employee.PlannedBonusAmount,
+            BonusFrequency = employee.BonusFrequency,
+            PlannedVoucherAmount = employee.PlannedVoucherAmount,
+            VoucherFrequency = employee.VoucherFrequency
+        };
+
+        decimal netUcret =empCopy.BaseSalary;
+        decimal fark = 0m;
+        decimal tolerans = 0.00001m;
+        GrossToNetPayrollCalculator calculator = new GrossToNetPayrollCalculator();
+        MonthlyPayroll pay = new MonthlyPayroll();
+
+        for(int i=0; i < 200; i++)
+        {
+
+            pay = calculator.CalculateMonthlyPayrollFromGross(empCopy, state, month);
+            fark = netUcret - pay.NetSalary;
+            if(fark < tolerans)
+            {
+                break;
+            }
             
-            
+            if(fark > tolerans)
+            {
+                empCopy.BaseSalary = pay.GrossSalary + fark;
+            }
         }
-        
-        return Iteration;
+        return pay;
     }
 }

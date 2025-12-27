@@ -28,7 +28,7 @@ public class EmployeeExcelImporter
         var Employees = new List<Employee>();
 
         // Excel dosyasındaki her satırı okuyup Employee nesnesine dönüştürme
-        for(int row = 2; row < LastRow; row++)
+        for(int row = 2; row <= LastRow; row++)
         {
 
             if(worksheet.Row(row).IsEmpty())

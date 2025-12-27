@@ -1,16 +1,14 @@
-
+using System;
 using BudgetPay.Domain;
 using BudgetPay.Infrastructure;
 
-
 namespace BudgetPay.Application;
 
-// Bordro işlemlerini Excel dosyası üzerinden yürüten sınıf
-public class PayrollExcelWorkflow
+public class GrossPayrollExcelWorkflow
 {
     private string FilePath { get; }
 
-    public PayrollExcelWorkflow(string path)
+    public GrossPayrollExcelWorkflow(string path)
     {   
         if (string.IsNullOrWhiteSpace(path))
         {
@@ -26,7 +24,7 @@ public class PayrollExcelWorkflow
     {
         var EmloyeesList = ImportEmployees();
 
-        PayrollCalculator calculator = new PayrollCalculator();
+        GrossToNetPayrollCalculator calculator = new GrossToNetPayrollCalculator();
         List<MonthlyPayroll> allPayrolls = new List<MonthlyPayroll>();
 
         for(int i = 0; i < EmloyeesList.Count; i++)
