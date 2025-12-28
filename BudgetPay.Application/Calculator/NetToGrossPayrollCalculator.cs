@@ -1,11 +1,13 @@
-using System;
+
 using BudgetPay.Domain;
 
 namespace BudgetPay.Application;
 
+
 // Aylık bordro hesaplayıcı sınıfı
 public class NetToGrossPayrollCalculator
 {   
+
     // Yıllık bordroyu Net maaştan hesaplayan metot
     public List<MonthlyPayroll> CalculateAnnualPayrollFromNet(Employee employee)
     {
@@ -26,6 +28,7 @@ public class NetToGrossPayrollCalculator
         }
         return Grosslist.AnnualPayrolls;
     }
+
 
     // Aylık bordroyu Brüt maaştan hesaplayan metot ( sınıf net hesaplayıcı olmasına rağmen bu metot brüt hesaplama yapıyor çünkü netten brüte iterasyon için gerekli)
     public MonthlyPayroll CalculateMonthlyPayrollFromGross(Employee employee, EmployeeCumulativeTaxState state, int month)

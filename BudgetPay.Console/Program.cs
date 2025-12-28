@@ -27,7 +27,7 @@ StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTax
 
 
 
-PayrollExcelWorkflow workflow = new PayrollExcelWorkflow(@"/Users/gokhankaya/Desktop/ResultTable.xlsx");
+NetPayrollExcelWorkflow workflow = new NetPayrollExcelWorkflow(@"/Users/gokhankaya/Desktop/EmployeeTemplate.xlsx");
 workflow.Run();
 
 DateTime end = DateTime.Now;
