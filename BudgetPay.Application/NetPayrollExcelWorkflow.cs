@@ -1,4 +1,5 @@
 
+using BudgetPay.Application.RetiredEmployeeCalculator;
 using BudgetPay.Domain;
 using BudgetPay.Infrastructure;
 
@@ -26,12 +27,12 @@ public class NetPayrollExcelWorkflow
     {
         var EmloyeesList = ImportEmployees();
 
-        NetToGrossPayrollCalculator calculator = new NetToGrossPayrollCalculator();
+        RetiredNetToGrossPayrollCalculator calculator = new RetiredNetToGrossPayrollCalculator();
         List<MonthlyPayroll> allPayrolls = new List<MonthlyPayroll>();
 
         for(int i = 0; i < EmloyeesList.Count; i++)
         {
-            var payrolls = calculator.CalculateAnnualPayrollFromNet(EmloyeesList[i]);
+            var payrolls = calculator.RetiredCalculateAnnualPayrollFromNet(EmloyeesList[i]);
             allPayrolls.AddRange(payrolls);
         }
 

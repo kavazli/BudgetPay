@@ -13,6 +13,7 @@ public class EmployeeTemplateExcelExporter
         "Department",
         "CostCenter",
         "PayType",
+        "Status",
         "BaseSalary",
         "SalaryIncreaseRate",
         "PlannedMonthlyOvertimeHours",

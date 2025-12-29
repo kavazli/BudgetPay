@@ -17,7 +17,7 @@ List<IncomeTaxBracket> ProgramBrackets = new()
 
 IncomeTaxBrackets ProgramIncomeTaxBrackets = new(ProgramBrackets);
 MinimumWage ProgramMinimumWage = new MinimumWage(26005.50m, 22104.67m);
-SocialSecurityParameters ProgramSocialSecurityParameters = new SocialSecurityParameters(0.14m, 0.01m, 0.1575m, 0.02m, 195041.40m);
+SocialSecurityParameters ProgramSocialSecurityParameters = new SocialSecurityParameters(0.14m, 0.01m, 0.1575m, 0.02m, 0.075m, 0.2475m, 195041.40m);
 StampTax ProgramStampTax = new StampTax(0.00759m);
 // -------------- Statutory Payroll Parameters
 
@@ -27,7 +27,7 @@ StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTax
 
 
 
-NetPayrollExcelWorkflow workflow = new NetPayrollExcelWorkflow(@"/Users/gokhankaya/Desktop/EmployeeTemplate.xlsx");
+NetPayrollExcelWorkflow workflow = new NetPayrollExcelWorkflow(@"C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\EmployeeTemplate.xlsx");
 workflow.Run();
 
 DateTime end = DateTime.Now;

@@ -10,6 +10,10 @@ public class SocialSecurityParameters
     public decimal EmployerUnemploymentInsuranceRate { get; }
     public decimal SocialSecurityCeiling { get; }
 
+    // Redired sosyal güvenlik oranları
+    public decimal RetiredEmployeeSocialSecurityRate { get;}
+    public decimal RetiredEmployerSocialSecurityRate { get;}
+
 
     // Yapıcı metot, sosyal güvenlik parametrelerini alır ve doğrular
     public SocialSecurityParameters(
@@ -17,7 +21,10 @@ public class SocialSecurityParameters
         decimal employeeUnemploymentInsuranceRate,
         decimal employerSocialSecurityRate,
         decimal employerUnemploymentInsuranceRate,
-        decimal socialSecurityCeiling)
+        decimal retiredEmployeeSocialSecurityRate,
+        decimal retiredEmployerSocialSecurityRate,
+        decimal socialSecurityCeiling
+        )
     {
     
 
@@ -25,7 +32,10 @@ public class SocialSecurityParameters
         EmployeeUnemploymentInsuranceRate = ValidateRate(employeeUnemploymentInsuranceRate, nameof(employeeUnemploymentInsuranceRate));
         EmployerSocialSecurityRate = ValidateRate(employerSocialSecurityRate, nameof(employerSocialSecurityRate));
         EmployerUnemploymentInsuranceRate = ValidateRate(employerUnemploymentInsuranceRate, nameof(employerUnemploymentInsuranceRate));
-
+        RetiredEmployeeSocialSecurityRate = ValidateRate(retiredEmployeeSocialSecurityRate, nameof(retiredEmployeeSocialSecurityRate));
+        RetiredEmployerSocialSecurityRate = ValidateRate(retiredEmployerSocialSecurityRate, nameof(retiredEmployerSocialSecurityRate));
+        
+         
 
         if (socialSecurityCeiling <= 0)
         {

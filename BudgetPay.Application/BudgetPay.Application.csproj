@@ -5,6 +5,10 @@
     <ProjectReference Include="..\BudgetPay.Infrastructure\BudgetPay.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RetiredEmployeeCalculator\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
