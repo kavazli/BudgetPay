@@ -42,13 +42,14 @@ public class EmployeeExcelImporter
             employee.Department = worksheet.Cell(row, 3).GetString().Trim();
             employee.CostCenter = worksheet.Cell(row, 4).GetString().Trim();
             employee.PayType = worksheet.Cell(row, 5).GetString().Trim();
-            employee.BaseSalary = decimal.TryParse(worksheet.Cell(row, 6).GetString().Trim(), out var baseSalary) ? baseSalary : 0;
-            employee.SalaryIncreaseRate = decimal.TryParse(worksheet.Cell(row, 7).GetString().Trim(), out var salaryIncreaseRate) ? salaryIncreaseRate : 0;
-            employee.PlannedMonthlyOvertimeHours = decimal.TryParse(worksheet.Cell(row, 8).GetString().Trim(), out var plannedMonthlyOvertimeHours) ? plannedMonthlyOvertimeHours : 0;
-            employee.PlannedBonusAmount = decimal.TryParse(worksheet.Cell(row, 9).GetString().Trim(), out var plannedBonusAmount) ? plannedBonusAmount : 0;
-            employee.BonusFrequency = int.TryParse(worksheet.Cell(row, 10).GetString().Trim(), out var bonusFrequency) ? bonusFrequency : 0;
-            employee.PlannedVoucherAmount = decimal.TryParse(worksheet.Cell(row, 11).GetString().Trim(), out var plannedVoucherAmount) ? plannedVoucherAmount : 0;
-            employee.VoucherFrequency = int.TryParse(worksheet.Cell(row, 12).GetString().Trim(), out var voucherFrequency) ? voucherFrequency : 0;
+            employee.Status = worksheet.Cell(row, 6).GetString().Trim();
+            employee.BaseSalary = decimal.TryParse(worksheet.Cell(row, 7).GetString().Trim(), out var baseSalary) ? baseSalary : 0;
+            employee.SalaryIncreaseRate = decimal.TryParse(worksheet.Cell(row, 8).GetString().Trim(), out var salaryIncreaseRate) ? salaryIncreaseRate : 0;
+            employee.PlannedMonthlyOvertimeHours = decimal.TryParse(worksheet.Cell(row, 9).GetString().Trim(), out var plannedMonthlyOvertimeHours) ? plannedMonthlyOvertimeHours : 0;
+            employee.PlannedBonusAmount = decimal.TryParse(worksheet.Cell(row, 10).GetString().Trim(), out var plannedBonusAmount) ? plannedBonusAmount : 0;
+            employee.BonusFrequency = int.TryParse(worksheet.Cell(row, 11).GetString().Trim(), out var bonusFrequency) ? bonusFrequency : 0;
+            employee.PlannedVoucherAmount = decimal.TryParse(worksheet.Cell(row, 12).GetString().Trim(), out var plannedVoucherAmount) ? plannedVoucherAmount : 0;
+            employee.VoucherFrequency = int.TryParse(worksheet.Cell(row, 13).GetString().Trim(), out var voucherFrequency) ? voucherFrequency : 0;
             Employees.Add(employee);
         
     }

@@ -29,7 +29,7 @@ public class GrossPayrollExcelWorkflow
 
         for(int i = 0; i < EmloyeesList.Count; i++)
         {
-            var payrolls = calculator.CalculateAnnualPayrollFromGross(EmloyeesList[i]);
+            var payrolls = calculator.CalculateAnnualPayroll(EmloyeesList[i]);
             allPayrolls.AddRange(payrolls);
         }
 

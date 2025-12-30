@@ -13,6 +13,11 @@ public static class StampTaxCalculator
             throw new ArgumentOutOfRangeException(nameof(grossSalary), "Gross salary must be greater than 0.");
         }
 
+        if (StatutoryParameters.StampTax == null)
+        {
+            throw new InvalidOperationException("Statutory parameters must be initialized before calculating stamp tax.");
+        }
+
         return grossSalary * StatutoryParameters.StampTax.Rate;
     }
 }

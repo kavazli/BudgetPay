@@ -28,7 +28,7 @@ StatutoryParameters.Initialize(ProgramSocialSecurityParameters, ProgramIncomeTax
 
 
 
-NetPayrollExcelWorkflow workflow = new NetPayrollExcelWorkflow(@"C:\Users\gokhan.kaya\OneDrive - Aster Textile\Desktop\EmployeeTemplate.xlsx");
+NetPayrollExcelWorkflow workflow = new NetPayrollExcelWorkflow(@"/Users/gokhankaya/Desktop/EmployeeTemplate.xlsx");
 workflow.Run();
 
 DateTime end = DateTime.Now;
