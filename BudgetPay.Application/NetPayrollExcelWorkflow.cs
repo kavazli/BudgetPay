@@ -1,4 +1,5 @@
 
+using BudgetPay.Application.Interfaces;
 using BudgetPay.Application.RetiredEmployeeCalculator;
 using BudgetPay.Domain;
 using BudgetPay.Infrastructure;
@@ -27,17 +28,33 @@ public class NetPayrollExcelWorkflow
     {
         var EmloyeesList = ImportEmployees();
 
-        RetiredNetToGrossPayrollCalculator calculator = new RetiredNetToGrossPayrollCalculator();
+        
+
+        IEmployeeCalculator RetiredCalculator = new RetiredNetToGrossPayrollCalculator();
+        IEmployeeCalculator ActiveCalculator = new NetToGrossPayrollCalculator();
+
         List<MonthlyPayroll> allPayrolls = new List<MonthlyPayroll>();
 
         for(int i = 0; i < EmloyeesList.Count; i++)
-        {
-            var payrolls = calculator.RetiredCalculateAnnualPayrollFromNet(EmloyeesList[i]);
-            allPayrolls.AddRange(payrolls);
+        {   
+            if (EmloyeesList[i].Status == "Emekli")
+            {
+                var allpayrolls = RetiredCalculator.CalculateAnnualPayroll(EmloyeesList[i]);
+                allPayrolls.AddRange(allpayrolls);
+                continue;
+            }
+            if ( EmloyeesList[i].Status == "Normal")
+            {
+                var allpayrolls = ActiveCalculator.CalculateAnnualPayroll(EmloyeesList[i]);
+                allPayrolls.AddRange(allpayrolls);
+                continue;
+            }
+            
         }
 
         ExportPayrolls(allPayrolls);
     }
+
 
     // Çalışanları Excel dosyasından içe aktaran metot
     private List<Employee> ImportEmployees()

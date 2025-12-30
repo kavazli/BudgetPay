@@ -42,7 +42,7 @@ public class EmployeeTemplateExcelExporter
 
 
         string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        string filePath = System.IO.Path.Combine(desktopPath, "ResultTable.xlsx");
+        string filePath = System.IO.Path.Combine(desktopPath, "EmployeeTemplate.xlsx");
 
         TemplateWorkbook.SaveAs(filePath);
 

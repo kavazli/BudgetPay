@@ -33,7 +33,7 @@ public static class NetToGrossSolver
         for(int i=0; i < 200; i++)
         {
 
-            pay = calculator.CalculateMonthlyPayrollFromGross(empCopy, state, month);
+            pay = calculator.CalculateMonthlyPayroll(empCopy, state, month);
             fark = netUcret - pay.NetSalary;
             if(fark < tolerans)
             {

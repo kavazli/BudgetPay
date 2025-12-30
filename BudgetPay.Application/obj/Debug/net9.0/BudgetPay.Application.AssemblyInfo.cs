@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BudgetPay.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fee690850782a90b0eb5288e813148246e0c9ae2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3565a300b603385a11a265ab7962eb0548df1d6d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BudgetPay.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BudgetPay.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
